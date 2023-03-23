@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+--white: hsl(0, 0%, 100%);
+/* Text */
+--very-dark-desaturated-blue: hsl(238, 29%, 16%);
+--soft-red: hsl(14, 88%, 65%);
+
+/* Gradient */
+--soft-violet: hsl(273, 75%, 66%);
+--soft-blue: hsl(240, 73%, 65%);
+
+/* Dividers */
+--very-dark-grayish-blue: hsl(237, 12%, 33%);
+--dark-grayish-blue: hsl(240, 6%, 50%);
+--light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 400;
+    font-size: .9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--soft-violet) 0%, var(--soft-blue) 100%);
+}
+
+ul li {
+    list-style: none;
+}
+
+.main-background__mobile {
+    display: none;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 990px;
+    height: 510px;
+    background: url(images/bg-pattern-desktop.svg) bottom -10rem left -36rem no-repeat, var(--white);
+    border-radius: 20px;
+    padding: 60px 90px 60px 0;
+}
+
+.main-background {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.main-background-images {
+    overflow: hidden;
+    width: calc(100% - 80px);
+}
+
+.main-background::before {
+    content: url(images/illustration-box-desktop.svg);
+    position: absolute;
+    top: 150px;
+    left: -130px;
+    z-index: 99;
+}
+
+.main-background__desktop {
+    position: relative;
+    left: -80px;
+}
+
+.main-background__mobile {
+    display: none;
+}
+
+.main-list {
+    width: 350px;
+}
+
+.main-list__title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--very-dark-desaturated-blue);
+    margin-bottom: 45px;
+}
+
+.main-list__list {
+    height: 280px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.list-item.active a {
+    font-weight: 700;
+}
+
+.list-item.active img {
+    transform: rotate(180deg);
+}
+
+.list-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 350px;
+    height: 1px;
+    left: 0;
+    bottom: -20px;
+    background-color: var(--dark-grayish-blue);
+}
+
+.item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    font-size: 1rem;
+    color: var(--very-dark-desaturated-blue);
+    cursor: pointer;
+}
+
+.item__question:hover {
+    color: var(--soft-red);
+    transition: .5s ease;
+}
+
+.item__answer {
+    display: none;
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: var(--dark-grayish-blue);
+}
+
+img {
+    transition: .5s ease;
+}
+
+@media (max-width: 1199.98px) {
+
+    body {
+        padding-top: 150px;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 50px 0;
+        margin: 50px 0;
+        width: 520px;
+        height: 650px;
+        background: url(images/bg-pattern-mobile.svg) no-repeat top 0 left 85px, var(--white);
+        background-size: 350px;
+    }
+
+    .main-background__desktop,
+    .main-background::before {
+        display: none;
+    }
+
+    .main-background {
+        top: -160px;
+    }
+
+    .main-background__mobile {
+        display: block;
+    }
+
+    .main-background-images {
+        width: 350px;
+    }
+    
+    .main-list {
+        position: absolute;
+        bottom: 80px;
+    }
+
+    .main-list__title {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    body {
+        padding-top: 100px;
+    }
+
+    main {
+        width: 330px;
+        height: 530px;
+        margin: 0;
+        background: url(images/bg-pattern-mobile.svg) no-repeat top 0 left 45px, var(--white);
+    }
+
+    .main-background {
+        top: -110px;
+    }
+
+    .main-background-images {
+        width: 240px;
+    }
+
+    .main-list {
+        width: 280px;
+        bottom: 60px;
+    }
+
+    .main-list__title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .list-item::after {
+        width: 280px;
+    }
+
+    .item__question {
+        width: 280px;
+        font-size: .875rem;
+    }
+}
