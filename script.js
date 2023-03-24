@@ -1,14 +1,26 @@
+//Accordion slides down (up) by clicking on the element
+
 $('.list-item').click(function() {
-    $(this).addClass('active');
-    $(this).children('.item__answer').slideToggle(500);
-    $('.list-item').not(this).removeClass('active');
-    $('.list-item').not(this).children('.item__answer').slideUp(500);
+    const clickedItem = $(this);
+    const isItemActive = clickedItem.hasClass('active');
+    
+    $('.list-item').removeClass('active');
+    $('.item__answer').slideUp(500);
+  
+    if (!isItemActive) {
+      clickedItem.addClass('active');
+      clickedItem.children('.item__answer').slideDown(500);
+    }
 });
 
-$(document).mouseup(function (e) {
-    let container = $('.main-list');
-    if (container.has(e.target).length === 0) {
-        $('.list-item').children('.item__answer').slideUp(500);
-        $('.list-item').not(this).removeClass('active');
+//Accordion slides up by clicking not on the element
+
+const $mainList = $('.main-list');
+const $listItem = $('.list-item');
+
+$(document).mouseup(function (event) {
+    if (!$mainList.has(event.target).length) {
+        $listItem.children('.item__answer').slideUp(500);
+        $listItem.not(event.target).removeClass('active');
     }
 });
