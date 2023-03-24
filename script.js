@@ -15,12 +15,12 @@ $('.list-item').click(function() {
 
 //Accordion slides up by clicking not on the element
 
-const $mainList = $('.main-list');
-const $listItem = $('.list-item');
+const mainList = $('.main-list');
+const listItem = $('.list-item');
 
 $(document).mouseup(function (event) {
-    if (!$mainList.has(event.target).length) {
-        $listItem.children('.item__answer').slideUp(500);
-        $listItem.not(event.target).removeClass('active');
+    if (!mainList.has(event.target).length) {
+        listItem.children('.item__answer').slideUp(500);
+        listItem.not(event.target).removeClass('active');
     }
 });
